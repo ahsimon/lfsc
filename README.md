@@ -13,18 +13,20 @@ Common Disk Types
 * SDD  (Solid State Drives)
 * IDE,EIDE (Integrated Device Electronics /Enhanced IDE)
 
-* **MRB** Master Boot Record
-* **GTP** GIUD Partition Table 
+* **GTP** GIUD Partition Table: 
+    * GTP is based on UEFI(Unified Extensible Firmware Interface). It may have up 128 primary partitions. Partitions can be setup 2^33 TB
 
-  GTP is based on UEFI(Unified Extensible Firmware Interface). It may have up 128 primary partitions. Partitions can be setup 2^33 TB
-  MRB SCSI Interface. Partitions limit is 2TB. All partitions greater than four are logical partitions 
+* **MRB** Master Boot Record:     
+    * MRB SCSI Interface. Partitions limit is 2TB. All partitions greater than four are logical partitions 
 
-Common partitions: 
+### Common partitions
+|   |   |
+|---|---|
+| /boot|   | 
+| / |used for filesystem   | 
+| /home  |   |   
+| swap  |extension for physical memory. Recomendation swap space equal to physical memory (somethimes twice)   |
 
-* /boot 
-* /: used for filesystem  
-* /home
-*  swap: extension for physical memory. Recomendation swap space equal to physical memory (somethimes twice)
 
 
 ### Naming Disk Devices/Nodes
@@ -70,13 +72,13 @@ slblik
 
 ### Backing Up and Restoring Partition Tables
 
-* **fdisk** menu driven partition table editor
-* **sfdisk** partition editor for scripting
-* **parted** partition editor. Can create, remove, resize and move partitions.  
-* **gparted** GUI parted editor
-* **gdisk** user for GTP systems, can also works with MRB systems
-* **sgdisk** scripting gdisk 
-* **dd** used for converting and copying files. Simple type error or misused option could destroy your entire disk  
+* **fdisk**: menu driven partition table editor
+* **sfdisk**: partition editor for scripting
+* **parted**: partition editor. Can create, remove, resize and move partitions.  
+* **gparted**: GUI parted editor
+* **gdisk**: user for GTP systems, can also works with MRB systems
+* **sgdisk**: scripting gdisk 
+* **dd**: used for converting and copying files. Simple type error or misused option could destroy your entire disk  
 
 ```sh
 # back up the MRB
@@ -94,7 +96,7 @@ sudo sgdisk -p /dev/sda
   
 ### fdisk
 
-* **fdisk** can create new partitions either primary or logical within an extended partition. Write the new partition table to disk and then format and mount the new partitions 
+ **fdisk**: can create new partitions either primary or logical within an extended partition. Write the new partition table to disk and then format and mount the new partitions 
 
 ```sh
 # show the disk geometry
