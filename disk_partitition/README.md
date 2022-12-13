@@ -65,7 +65,7 @@ sudo blkid /dev/sdb2
 sudo blkid -L root
 ```
 
-```sh
+c
 # show device information in tree format
 slblik
 ```
